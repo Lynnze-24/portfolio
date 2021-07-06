@@ -1,0 +1,202 @@
+.showcase{
+    height: max-content;
+    width: 100%;
+    overflow: hidden;
+    display: flex;
+    @extend %pds;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: var(--cp);
+    
+    @include mq-md{
+        height: 100vh;
+        flex-direction: row;
+    }
+    @include mq-xl{
+        
+        flex-direction: row;
+    }
+
+    &-content{
+        display: flex;
+        flex-direction: column;
+        margin: 0 auto;
+        color: var(--cq);
+        letter-spacing: 0.2rem;
+        
+        width: 100%;
+        @include mq-xs{
+            width: 80%;
+        
+        }
+        @include mq-md{
+            margin-top: 5rem;
+            width: 85%;
+        }
+        @include mq-xl{
+            margin: 0;
+            width: 81%;
+            padding-left: 4.5%;
+        }
+        // background-color: blue;
+        & h1,& p{
+            font-weight: fw(normal);
+            font-size: fs(md);
+           
+            @include mq-s{
+                font-size: fs(xl);
+            
+            }
+            @include mq-md{
+                font-size: fs(md);
+            }
+            @include mq-lg{
+                font-size: fs(lg);
+            }
+            @include mq-xl{
+                font-size: fs(xl);
+            }
+
+
+        }
+
+        & p{
+            position: relative;
+            padding: 0;
+            letter-spacing: 0.1rem;
+            width: max-content;
+            height: max-content;
+            overflow-x: hidden;
+            &::after,&::before{
+                content: '';
+                position: absolute;
+                top: 0;
+                left:0;
+                bottom: 0;
+                right: 0;
+                
+                
+            }
+
+            &::before{
+                
+                background-color: var(--cp);
+            }
+            &::after{
+                height: 65%;
+                width: 0.2rem;
+                left: 0;
+                top: 50%;
+                transform: translateY(-50%);
+                background-color: var(--cs);
+               
+            }
+        }
+        
+        & button{
+            order: -1;
+            margin-bottom: 2rem;
+            align-self: center;
+            font-size: fs(xs);
+            background: linear-gradient(to bottom right,var(--cs),var(--ct));
+            padding: 1em 1.5em;
+            margin-top: 2rem;
+            border-radius: 0.5em;
+
+            @include mq-md{
+                order: 1;
+                align-self: flex-start;         
+              }
+        }
+    }
+    &-img{
+       
+        order: -1;
+        width: 19rem;
+        height: 14rem;
+      
+        padding: 0;
+        
+        @include mq-xs{
+            width: 40rem;
+            height: 35rem;
+        }
+        @include mq-md{
+            order: 1;
+            margin-top: 0;
+            width: 45rem;
+            height: 40rem;
+        }
+
+        @include mq-lg{
+            width: 55rem;
+            height: 50rem;
+        }
+
+        
+       
+       & svg{
+           height: 100%;
+           width: 100%;
+           
+       }
+    }
+
+}
+
+@keyframes type{
+    
+    to{
+        left: 99%;
+    }
+}
+
+@keyframes type-b{
+    from{
+        left: 99%;
+    }
+    to{
+        left: 0;
+    }
+}
+
+@keyframes blink{
+    
+    to{
+        background-color: transparent;
+    }
+}
+
+.showcase-content p.text-anim::before{
+    animation: type 5s steps(21)  forwards ;
+}
+
+.showcase-content p.text-anim::after{
+    animation: type 5s steps(21)  forwards, blink 1s linear infinite;
+}
+
+.showcase-content p.text-anim1::before{
+    animation: type 4s steps(15) 1s forwards ;
+}
+
+.showcase-content p.text-anim1::after{
+    animation: type 4s steps(15) 1s forwards, blink 1s linear infinite;
+}
+
+.showcase-content p.text-animB::before{
+    animation: type-b 5s steps(21)  forwards ;
+}
+
+.showcase-content p.text-animB::after{
+    animation: type-b 5s steps(21)  forwards, blink 1s linear infinite;
+}
+
+.showcase-content p.text-animB1::before{
+    animation: type-b 4s steps(15)  forwards ;
+}
+
+.showcase-content p.text-animB1::after{
+    animation: type-b 4s steps(15)  forwards, blink 1s linear infinite;
+}
+

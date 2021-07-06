@@ -1,0 +1,77 @@
+:root {
+    font-size: 62.5%;
+}
+  
+html {
+    scroll-behavior: smooth;
+}
+  
+body{
+    font-family: 'Source Code Pro', monospace;
+    max-width: 2000px;
+    margin: 0 auto;
+    letter-spacing: 0.2rem;
+    line-height: 1.9;
+    color: var(--cq);
+    background-color: var(--cp);
+    overflow: hidden;
+    
+}
+
+::selection {
+    background-color: var(--cs);
+    color: var(--cq);
+}
+  
+ul {
+    list-style: none;
+  }
+  
+a:link,
+a:visited {
+    text-decoration: none;
+    font-weight: fw(light);
+    color: var(--cq);
+    font-size: fs(xs);
+}
+  
+i {
+    font-size: fs(md);
+    color: var(--cq);
+}
+  
+button,
+a {
+    cursor: pointer;
+    
+}
+
+button{
+    outline: none;
+    border: none;
+    color: var(--cq);
+    
+}
+  
+
+.show-body{
+    overflow: auto;
+}
+
+::placeholder {
+    font-family: 'Source Code Pro', monospace;
+    
+  }
+
+  ::-webkit-input-placeholder {
+    font-family: 'Source Code Pro', monospace;
+}
+:-moz-placeholder {
+    font-family: 'Source Code Pro', monospace;
+}
+::-moz-placeholder {
+    font-family: 'Source Code Pro', monospace;
+}
+:-ms-input-placeholder {
+    font-family: 'Source Code Pro', monospace;
+}

@@ -1,0 +1,454 @@
+.project{
+    width: 100%;
+    min-height: 100vh;
+    background-color: var(--cq);
+    display: flex;
+    flex-direction: column;
+    justify-content: end;
+    align-items: center;
+    
+    & h1{
+        font-size: fs(lg);
+        color: var(--cp);
+        margin-top: 5rem;
+        margin-bottom: 5rem;
+    }
+
+    &-con{
+        
+        perspective:1500px;
+        perspective-origin: 50% -20%;
+        height: 80vh;
+        width: 100%;
+        position: relative;
+        overflow: hidden;
+        transform-style: preserve-3d;
+    }
+
+    &-cab{
+        margin-left: 2rem;
+        height: 30rem;
+        width: 30rem;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        z-index: 1;
+        transform: translate(-50%,-70%) translateZ(-15rem);
+        transform-style: preserve-3d;
+        & .front,.back,.bottom,.top,.right,.left{
+            position: absolute;
+            height: 30rem;
+            width: 30rem;
+            background-color: black;
+            transform-style: preserve-3d;
+            box-shadow: 0 0 0.5rem #000 inset;
+            background-image: url(../../img/wood.jpg);
+            background-size: cover;
+        }
+
+        & .back{
+            top: 0;
+            left: 0;
+            transform: rotateY(180deg) translateZ(0);
+
+        }
+        & .front{
+            top: 0;
+            left: 0;
+            transform: translateZ(30rem);
+            background-image: unset;
+            
+            
+            height: 0;width: 0;
+            position: relative;
+            .custom,.clone,.jgame{
+                position: absolute;
+                top: 0;
+                left: 0;
+                height: 9.9rem;
+                width: 30rem;
+                transform-style: preserve-3d;
+                transition: transform 0.6s ease-in-out;
+                background-image: url(../../img/wood.jpg);
+            background-size: cover;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            transform-origin: left;
+            cursor:grab;
+             &:hover{
+                 filter: sepia(0.8) invert(5%) drop-shadow(0px 0px 10px black);
+             }
+             &:focus,&:active{
+                 cursor:grabbing;
+             }
+             
+             & div{
+                height: 50%;
+                width: 10%;
+                backface-visibility: hidden;
+                -webkit-backface-visibility: hidden;
+                transition-delay: 0.5s;
+                z-index: 3;
+                // transition: opacity 0.2s ease;
+             }
+             
+             
+             & img{
+                 height: 100%;
+                 width: 100%;
+                 object-fit: cover;
+             }
+             & p{
+                 font-size: fs(xs);
+                 backface-visibility: hidden;
+                 transition-delay: 0.5s;
+                 -webkit-backface-visibility: hidden;
+                 width: 65%;
+                 z-index: 3;
+             }
+            }
+            
+            .clone{
+                top: 10rem;
+            }
+            .jgame{
+                top: 20rem;
+            }
+            
+        }
+        & .left{
+            top: 0;
+            left: 0;
+            
+            transform:rotateY(270deg) translateZ(15rem) translateX(15rem); 
+            
+        }
+        & .right{
+            top: 0;
+            left: 0;
+            
+            transform:rotateY(90deg) translateZ(15rem) translateX(-15rem); 
+            
+        }
+        & .top{
+            top: 0;
+            left: 0;
+            background-image: url(../../img/wood.jpg);
+            background-size: cover;
+            transform:translateY(-15rem) rotateX(90deg) translateY(15rem) ;
+            
+        }
+        & .bottom{
+            top: 0;
+            left: 0;
+            z-index: 20;
+            background-color: black;
+            background-image: unset;
+            transform:translateY(14.9rem) rotateX(270deg) translateY(-15rem);
+            &1,&2,&3{
+                
+                
+                height: 100%;
+                width: 100%;
+                top: 0;
+                left: 0;
+                transform: rotateX(180deg);
+                background-color: black;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                &-project{
+                    margin-top: 2rem;
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                    flex-direction: column;
+                    &_content{
+                        height: 100px;
+                        width: 140px;
+                        margin:  10px 0;
+                        z-index: 20;
+                        cursor: pointer;
+                        &:hover{
+                           filter: sepia(1) invert(0.1)hue-rotate(90deg); 
+                        }
+                        & img{
+                            transition:transform 0.3s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+                            height: 100%;
+                            width: 100%;
+                            object-fit: cover;
+                            
+                        }
+                    }
+
+                    
+                    
+                    
+                }
+                & p{
+                    margin-left: 1.5rem;
+                    font-size: 2.3rem;
+                    width: 200px;
+                    cursor:zoom-in;
+                   
+                }
+            }
+            &2{
+                transform:translateZ(-10rem) translateY(-100%)  rotateX(180deg);
+                
+            }
+            &3{
+                transform:translateZ(-20rem) translateY(-200%)  rotateX(180deg);
+                
+            }
+        }
+        
+
+    }
+    &-floor{
+        transform-style: preserve-3d;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%,-45%) rotateX(90deg);
+        
+        height: 200rem;
+        width: 200rem;
+        background-image: url(../../img/floor.png);
+        
+    }
+
+}
+
+.zoom-text{
+    display: none;
+    position: fixed;
+    inset: 0;
+    height: max-content;
+    width: max-content;
+  
+    background-color: var(--cp);
+    margin: auto;
+    z-index: 200;
+    border-radius: 0.8rem;
+    & p{
+        text-align: center;
+        max-width: 30rem;
+       
+    }
+}
+
+
+
+.text-zoomed{
+    display: block;
+}
+
+.project-open{
+    transform-origin: left;
+    transform:rotateY(-180deg);
+   & p,& div{
+    transform: translate3d(0,0,0);
+    
+   }
+
+}
+
+.zoom-project{
+    
+    perspective: 500px;
+    transform-style: preserve-3d;
+    position: fixed;
+    inset: 0;
+    margin: auto;
+    width: 60rem;
+    height: 30rem;
+    z-index: 20;
+    visibility: hidden;
+    transition: visibility 0s 1.3s ease-in-out;
+    overflow: hidden;
+    &-info{
+        z-index: 1;
+        position: absolute;
+        top: 0;
+        right: 0;
+        height: 100%;
+        width: 70%;
+        transition: transform 0.3s 0s ease-in-out;
+        clip-path: polygon(0 0, 100% 0, 100% 100%, 32% 100%);
+        transform: scaleX(0);
+        transform-origin: right;
+        background-color: rgba(0,0,0,0.9);
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+        & h3{
+            font-size: 2rem;
+            margin: 2rem 0;
+        }
+        & li{
+            font-size: 1.3rem;
+            padding-left: 1rem;
+            line-height: 3rem;
+            &::marker{
+                font-family: "Font Awesome 5 Free"; font-weight: 900; 
+                content: "\f00c";
+                
+            }
+        }
+        & p{
+            position: absolute;
+            cursor: pointer;
+            top: 0;
+            right: 2rem;
+            line-height: 5rem;
+            text-align: center;
+            height: 5rem;
+            width: 5rem;
+            font-size: 2.5rem;
+            
+    
+            &:hover{
+                transform: scale(1.2);
+            }
+    
+        
+        }
+        & button{
+            
+            margin: 0.8rem;
+            margin-bottom: 0;
+            margin-top: 2rem;
+            font-size: 1.2rem;
+            padding: 0.5rem 1rem;
+            color: var(--cp);
+
+            
+        }
+        & i{
+            color: var(--cp);
+            font-size: 1.2rem;
+            margin-left: 0.5rem;
+        }
+        & a{
+            align-self: flex-end;
+            font-size: 1rem;
+            margin-top: 5rem;
+            margin-right: 2rem;
+            & i{
+                position: relative;
+                font-size: 1rem;
+                visibility: hidden;
+                color: white;
+            }
+            &:hover i{
+                visibility: visible;
+                animation: more-projects 0.3s ease-in infinite;
+            }
+        }
+    }
+    &-img{
+        
+        position: absolute;
+        display: flex;
+        flex-wrap: wrap;
+        overflow: hidden;
+        
+        transition: transform 0.3s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+        background-size: cover;
+        background-repeat: no-repeat;
+        background-position: center;
+        height: 100%;width: 100%;
+        top: 0;
+        left: 0;
+    }
+}
+
+.block{
+    position: relative;
+    transform-style: preserve-3d;
+    width: 6rem;
+    height: 6rem;
+    transform: translateZ(2000px) rotateY(270deg) ;
+    animation: breakBG 1s  cubic-bezier(0.68, -0.55, 0.265, 1.55) ; 
+   
+}
+
+.active-project{
+   visibility: visible;
+   transition: visibility 0s 0s ease-in-out;
+
+    & .block{
+        
+        animation: formBG 1s cubic-bezier(0.68, -0.55, 0.265, 1.55) ; 
+        
+        &:nth-of-type(3n){
+            animation-delay: 0.2s;
+        }
+        &:nth-of-type(3n-1){
+            animation-delay: 0.1s;
+        }
+        &:nth-of-type(3n+1){
+            animation-delay: 0.3s;
+        }
+        
+        
+        
+       
+      
+    }
+
+}
+
+.over-ani{
+    & .zoom-project-info{
+        transform: scaleX(1);
+        transition: transform 0.5s 0.7s ease-in-out;
+    }
+    & .block{transform: translateZ(0) rotateY(0);}
+}
+
+.projectsm-vanish{
+    transform: scaleX(0);
+}
+@keyframes breakBG {
+    0%{
+        transform: perspective(0) rotateY(0) scaleY(1)  rotateZ(0deg) ;
+        transform-style: preserve-3d;
+        
+    }
+    100%{
+        transform: perspective(1000px) rotateY(270deg) scaleY(0) rotateZ(270deg) ;
+        transform-style: preserve-3d;
+        
+       
+    }
+}
+
+@keyframes formBG {
+    0%{
+        transform: perspective(1000px) rotateY(270deg) scaleY(0) rotateZ(270deg) ;
+        transform-style: preserve-3d;
+        
+    }
+    100%{
+        transform: perspective(0) rotateY(0) scaleY(1)  rotateZ(0deg) ;
+        transform-style: preserve-3d;
+       
+    }
+}
+
+@keyframes more-projects {
+    0%{
+        left: 0;
+        
+    }
+    50%{
+        left: 0.3rem;
+    }
+    100%{
+         left: 0;
+    }
+}

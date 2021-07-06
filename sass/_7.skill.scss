@@ -1,0 +1,141 @@
+.skill{
+    width: 100%;
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    @extend %pds;
+    & h1{
+        font-size: fs(lg);
+
+    }
+
+    &-slide{
+        
+        width: 100%;
+        height: 70vh;
+        position: relative;
+        overflow: hidden;
+        &_wrap{
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            display: flex;
+            
+            justify-content: center;
+            align-items: center;
+        }
+        // rgb(12, 11, 11)
+        &_box{
+                  
+                   transform: translateZ(0);
+                    height: 8rem;
+                    width: 8rem;
+                    // perspective: 3000px;
+                    transform-style: preserve-3d;
+                    
+                    animation: rotate3D 20s linear infinite;
+                    & span{
+                        position: absolute;
+                        top: 0;
+                        left: 0;
+                        width: 100%;
+                        height: 100%;
+                        border-radius: 50%;
+                        transform-style: preserve-3d;
+                        transform-origin: center;
+                        background-color: var(--cq);
+                        
+                        transform: rotateY(calc(var(--i) * 36deg)) translateY(100px) translateZ(300px);
+                        z-index: 200;
+                        & img{
+                            position: relative;
+                            top: 50%;
+                            left: 50%;
+                            height: 70%;
+                            transform: translate(-50%,-50%);
+                            
+                            width: 70%;
+                            object-fit: cover;
+                            
+                           
+                            
+                        }
+                    }
+            }
+        
+        &_center{
+            width: 10rem;
+            height: 10rem;
+            position: relative;
+            
+            animation: rotate-cen 4s linear infinite;
+            transform-style: preserve-3d;
+            & div{
+                position: absolute;
+                top: 0;
+                left: 0;
+                width: 100%;
+                height: 100%;
+                transform-style: preserve-3d;
+
+                &.html{
+                    width: 130%;
+                    height: 130%;
+                }
+                &.js{
+                    width: 95%;
+                    height: 95%;
+                }
+                & img{
+                    width: 100%;
+                    height: 100%;
+                    object-fit: cover;
+                }
+            }
+        }
+    }
+}
+
+.html{
+    
+    transform: translate3d(-15px,-15px,30px);
+}
+
+.css{
+    transform: rotateY(120deg) translateZ(30px);
+    
+}
+
+.js{
+    transform: rotateY(-120deg) translateZ(30px) translateY(3px);
+    
+}
+
+@keyframes rotate-cen {
+   from{
+    transform: rotateY(0deg) perspective(3000px) ;
+   }
+    to{
+        transform: rotateY(360deg) perspective(3000px);
+        
+    }
+    
+}
+
+
+
+@keyframes rotate3D{
+ 0%{
+    transform:  perspective(2000px) rotateY(0deg) ;
+ }
+ 100%{
+    transform:  perspective(2000px) rotateY(360deg) ;
+ }
+ 
+}
+
+

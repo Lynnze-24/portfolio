@@ -1,0 +1,50 @@
+html {
+    --cp: #0C0B0B;
+    --cs: #03D0FF;
+    --ct: #508397;
+    --cq: #f7f7f7;
+  }
+  
+  $fw: (
+    thin: 100,
+    light: 300,
+    normal: 400,
+    medium: 500,
+    bold: 700,
+    bolder: 800,
+  );
+  
+  @function fw($n) {
+    @return map-get($fw, $n);
+  }
+  
+  // font-size
+  
+  $fs: (
+    "xxs": calc(0.8rem + 0.2vw),
+    "xs": calc(0.8rem + 0.6vw),
+    "s": calc(1.5rem + 1vw),
+    "md": calc(1.8rem + 1.5vw),
+    "lg": calc(1.8rem + 2vw),
+    "xl": calc(1.9rem + 2.5vw),
+    "xxl": calc(2.5rem + 5vw),
+  );
+  
+  @function fs($size) {
+    @return map-get($fs, $size);
+  }
+  
+  //*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-* Break Points *-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*
+  $bp: (
+    "xs": 400px,
+    "s": 600px,
+    "md": 750px,
+    "lg": 900px,
+    "xl": 1200px,
+   
+  );
+  
+  @function bp($size) {
+    @return map-get($bp, $size);
+  }
+  

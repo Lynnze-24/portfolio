@@ -1,0 +1,332 @@
+.contact{
+    width: 100%;
+    min-height:100vh;
+    @extend %pds;
+    height: max-content;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+   position: relative;
+    overflow: hidden;
+    perspective: 1000px;
+        perspective-origin: 50% -60%;
+
+    &-wrap{
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-start;
+        align-items: center;
+        transform-style: preserve-3d;
+        position: absolute;
+        top: 50%;
+        left:50%;
+        transform: translate(-50%,-50%) rotateX(90deg);
+        
+        height: 300rem;
+        width: 500rem;
+        
+        background-image: url(../../img/floor.png);
+        
+    }    
+    &-con{
+        margin-top: 15%;
+        margin-bottom: 20rem;
+        background-image: url(../../img/letter.png);
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        transition: transform 0.3s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+        background-repeat: no-repeat;
+        background-position: center;
+        background-size: cover;
+        padding: 5.5em 7em;
+        cursor: pointer;
+        text-align: center;
+        text-shadow: 0 0.1rem 0.2rem var(--cp);
+        position: relative;
+        
+        &:hover{
+           
+            mix-blend-mode:hard-light;
+        }
+
+        & h2{
+            text-align: center;
+            width: 7ch;
+            font-size: calc(4rem + 1vw);
+            
+            letter-spacing: 0;
+        }
+        &::after{
+            content: '';
+            position: absolute;
+            top: calc(13rem + 2vw);
+            left: 10%;
+            width: 30rem;
+            height: 30rem;
+            background-image: url(../../img/ballpen.png);
+            background-size: contain;
+            background-repeat: no-repeat;
+            z-index: 12;
+        }
+
+        
+    }
+    &-info{
+        
+        z-index: -1;
+        min-width: 10rem;
+        height: 30rem;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+     
+
+        
+        background-size: 25rem 40rem;
+        background-image: url(../../img/carpet.jpg);
+        text-shadow: 0 0.1rem 0.4rem var(--cp);
+        font-size: calc(2rem + 1vw);
+        border-radius: 2rem;
+        line-height: 3em;
+
+        &_content{
+            padding: 0.5rem 5rem;
+            display: flex;
+        }
+        & i{
+            margin-right: 2rem;
+        }
+    }
+
+    &-icons{
+        margin-top: 5rem;
+       display: flex;
+       justify-content: center;
+       align-items: center;
+      
+       
+       & .git{
+           position: relative;
+           height: 20rem;
+           width: 8rem;
+           &:hover .git-boot{
+            transform:translate(-10%,-60%) rotateZ(-90deg);
+            
+            } 
+            &:hover .git-icon{
+                z-index: 2;
+                transition: z-index 0s 0.5s ease-in-out;
+            } 
+
+           &-boot{
+            position: absolute;
+            top: 0;left: 0;
+            height: 18rem;
+            width: 18rem;
+                background: url(../../img/lshoe.png);
+                background-size: contain;
+                background-repeat: no-repeat;
+                transition: transform 0.5s ease-in-out;
+                transform-origin: bottom;
+                
+                
+           }
+           &-icon{
+            position: absolute;
+            top: 20%;
+            left: 7%;
+            height: 5rem;
+            width: 5rem;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            border-radius: 50%;
+            background-color: transparent;
+            transition:z-index 0s 0s ease;
+            z-index: -1;
+            cursor: pointer;
+            &:hover{
+                transform: scale(1.05);
+            }
+        }
+
+       }
+       & .linked{
+        position: relative;
+        height: 20rem;
+        width: 8rem;
+
+        &:hover .linked-boot {
+            transform: translateX(-50%) rotateZ(90deg);
+            
+        }
+        &:hover .linked-icon{
+            z-index: 2;
+            transition: z-index 0s 0.5s ease;
+        } 
+
+        &-boot{
+            height: 18rem;
+           width: 18rem;
+            position: absolute;
+            top: 0;
+            left: 0;
+             background: url(../../img/rshoe.png);
+             background-size: contain;
+                background-repeat: no-repeat;
+            transition: transform 0.5s ease;
+            transform-origin: bottom;
+            
+               
+        }
+        &-icon{
+            position: absolute;
+            top: 20%;
+            left: 7%;
+            height: 5rem;
+            width: 5rem;
+            
+            border-radius: 50%;
+            background-color: transparent;
+            z-index: -1;
+            display: flex;
+            transition:z-index 0s 0s ease;
+            justify-content: center;
+            align-items: center;
+            cursor: pointer;
+            &:hover{
+                transform: scale(1.05);
+            }
+            
+            & i{
+                font-size: fs(s);
+                
+            }
+        }
+        
+    }
+    }
+}
+
+
+.contact-form{
+    
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    
+    padding: 5rem 10rem;
+    background-image: url(../../img/letter.png);
+    z-index:20 ;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding-right: 4rem;
+    transform: translate(-50%,-50%) scaleX(0);
+    transition: transform 0.3s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+    
+    .close-form{ 
+        
+        position: absolute;
+        cursor: pointer;
+        top: 6rem;
+        right: 3rem;
+        height: 3.5rem;
+        width: 3.5rem;
+        text-align: center;
+        line-height: 2.5rem;
+        color: black;
+        font-size: fs(s);
+        border: 0.2rem solid black;
+        border-radius: 50%;
+        transition: transform 0.5s cubic-bezier(0.95, 0.05, 0.795, 0.035);
+
+        &:hover{
+            transform: rotateZ(3600deg);
+        }
+
+    }
+    & button{
+        border: none;
+        outline: none;
+        margin-top: 3rem;
+        font-size: fs(xs);
+        padding: 0.5rem 2rem;
+        border-radius: 1rem;
+        color: black;
+        border: 0.2rem solid black;
+        background-color: transparent;
+
+    }
+
+    .form-control{
+       margin-top: 2rem;
+        height: min-content;
+        position: relative;
+        &:first-of-type{
+            margin-top: 5rem;
+        }
+        &:last-of-type{
+          max-height: 6rem ;
+        }
+        
+        &::after{
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            height: 0.2rem;
+            width: 100%;
+            background-color: var(--cp);
+        }
+        & input{
+            font-size: fs(xs);
+            border: none;
+            
+            width: 30ch;
+            height: 100%;
+            padding: 1rem 0.5rem ;
+            background-color: transparent;
+            
+            
+            &:focus{
+                background-color:transparent;
+                
+            }
+        }
+        & textarea{
+            font-family: 'Source Code Pro', monospace;
+            border: none;
+            font-size: fs(xs);
+            width: 28ch;
+            height: 100%;
+            padding: 1rem 0.5rem ;
+            background-color: transparent;
+            resize: none;
+            padding-bottom: 2rem;
+            &:focus{
+                background-color:transparent;
+                
+            }
+
+           
+        }
+
+        
+    }
+    
+
+    
+}
+
+
+.open-form {
+    transform: translate(-50%,-50%) scaleX(1);
+}
+
+.close-con-form{
+    transform: scaleX(0);
+}
