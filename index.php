@@ -22,16 +22,16 @@ if($_POST){
 
 $mail = new PHPMailer; 
 $mail->isSMTP();  
-$mail->Host = 'smtp-relay.sendinblue.com'; 
+$mail->Host = ''; //host or smtp server
 $mail->SMTPAuth = true; 
 $mail->SMTPDebug = 0;
-$mail->Username = 'aunghtetlinn.yit@gmail.com';  
-$mail->Password = '08VE4dtC79MQbwjK'; 
+$mail->Username = '';  
+$mail->Password = ''; 
 $mail->SMTPSecure = 'tls';
 $mail->Port = 587; 
-$mail->setFrom('ahl96.smtp@gmail.com', 'Aung Htet Linn'); 
-$mail->addAddress('Aunghtetlinn.yit@gmail.com');      
-$mail->addReplyTo('ahl96.smtp@gmail.com', 'no-reply'); 
+$mail->setFrom('', ''); //fill gmail and username of sender
+$mail->addAddress('');      // receiver email
+$mail->addReplyTo('', 'no-reply'); // sender email
 $mail->Subject = $_POST['subject']; 
 $mail->Body= $_POST['message']."....................sent by ".$_POST['email'] ;  
 $mail->AltBody = "message"; 
