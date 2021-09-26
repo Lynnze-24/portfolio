@@ -1,20 +1,25 @@
 .skill{
     width: 100%;
-    min-height: 100vh;
+    height: max-content;
     display: flex;
-    justify-content: center;
+    justify-content: flex-start;
     align-items: center;
     flex-direction: column;
+    outline: 5px solid var(--cp);
     @extend %pds;
     & h1{
         font-size: fs(lg);
-
+        @include mq-xxl{
+            font-size: 70px;
+        }
     }
 
     &-slide{
         
         width: 100%;
-        height: 70vh;
+        height: max-content;
+        min-height: 33rem;
+        margin-bottom: 10rem;
         position: relative;
         overflow: hidden;
         &_wrap{

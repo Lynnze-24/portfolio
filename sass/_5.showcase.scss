@@ -8,7 +8,8 @@
     justify-content: center;
     align-items: center;
     background-color: var(--cp);
-    
+    max-height: 800px;
+    outline: 5px solid var(--cp);
     @include mq-md{
         height: 100vh;
         flex-direction: row;
@@ -54,8 +55,11 @@
             @include mq-lg{
                 font-size: fs(lg);
             }
-            @include mq-xl{
+            @include mq-show{
                 font-size: fs(xl);
+            }
+             @include mq-xxl{
+                font-size: 46px;
             }
 
 
@@ -94,12 +98,15 @@
             }
         }
         
-        & button{
+        & a{
             order: -1;
             margin-bottom: 2rem;
             align-self: center;
             font-size: fs(xs);
-            background: linear-gradient(to bottom right,var(--cs),var(--ct));
+            letter-spacing: 0.05rem;
+            font-weight: normal;
+            font-family:Arial, Helvetica, sans-serif;
+            background-image: linear-gradient(to bottom right,var(--cs),var(--ct));
             padding: 1em 1.5em;
             margin-top: 2rem;
             border-radius: 0.5em;
@@ -108,30 +115,47 @@
                 order: 1;
                 align-self: flex-start;         
               }
+              @include mq-xxl{
+                margin-top: 20px;
+                font-size: 20px;        
+              }
+
+              &:hover{
+                background-image: linear-gradient(to bottom right,var(--ct),var(--cs));
+                transition: background-image 0.5s cubic-bezier(0.645, 0.045, 0.355, 1) ;
+              }
         }
     }
     &-img{
        
         order: -1;
-        width: 19rem;
-        height: 14rem;
-      
+        width: 25rem;
+        height: 15rem;
+        
         padding: 0;
         
         @include mq-xs{
-            width: 40rem;
-            height: 35rem;
+            width: 45rem;
+            height: 38rem;
         }
         @include mq-md{
             order: 1;
             margin-top: 0;
             width: 45rem;
-            height: 40rem;
+            height: 38rem;
+            
         }
 
         @include mq-lg{
-            width: 55rem;
-            height: 50rem;
+            width: 60rem;
+            height: 45rem;
+            padding-top: 3rem;
+           
+        }
+        @include mq-xl{
+           
+            padding-top: 0;
+            padding-bottom: 5rem;
         }
 
         
@@ -139,7 +163,7 @@
        & svg{
            height: 100%;
            width: 100%;
-           
+           object-fit: contain;
        }
     }
 

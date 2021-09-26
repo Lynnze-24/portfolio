@@ -1,6 +1,7 @@
 .contact{
     width: 100%;
-    min-height:100vh;
+    min-height:800px;
+   
     @extend %pds;
     height: max-content;
     display: flex;
@@ -21,11 +22,11 @@
         position: absolute;
         top: 50%;
         left:50%;
-        transform: translate(-50%,-50%) rotateX(90deg);
-        
+        -webkit-transform: translate(-50%,-50%) rotateX(90deg);
+        transform: translate(-50%,-50%) rotateX(90deg) ;
         height: 300rem;
         width: 500rem;
-        
+       
         background-image: url(../../img/floor.png);
         
     }    
@@ -47,7 +48,7 @@
         position: relative;
         
         &:hover{
-           
+            
             mix-blend-mode:hard-light;
         }
 
@@ -57,6 +58,9 @@
             font-size: calc(4rem + 1vw);
             
             letter-spacing: 0;
+            @include mq-xxl{
+                font-size: 55px;
+            }
         }
         &::after{
             content: '';
@@ -96,44 +100,68 @@
             display: flex;
         }
         & i{
-            margin-right: 2rem;
+            margin-right: 1rem;
+            @include mq-s{
+                margin-right: 2rem;
+            }
+        }
+        & i, & p{
+            font-size:fs(s);
+            @include mq-s{
+                font-size: unset;
+            }
+            @include mq-xxl{
+                font-size: 35px;
+            }
+            
         }
     }
 
     &-icons{
-        margin-top: 5rem;
+        margin-top: 3rem;
        display: flex;
        justify-content: center;
        align-items: center;
+      margin-bottom: 5rem;
       
        
        & .git{
            position: relative;
-           height: 20rem;
-           width: 8rem;
-           &:hover .git-boot{
-            transform:translate(-10%,-60%) rotateZ(-90deg);
+           height: 200px;
+           width: 80px;
+          
+           transform: translate3d(0,0,0);
+           
+           cursor: grab;
+        //    &:hover .git-boot{
+        //     transform:translate(-10%,-60%) rotateZ(-90deg);
             
-            } 
-            &:hover .git-icon{
-                z-index: 2;
-                transition: z-index 0s 0.5s ease-in-out;
-            } 
+        //     } 
+            // &:hover .git-icon{
+            //     z-index: 2;
+            //     transition: z-index 0s 0.5s ease-in-out;
+            // } 
 
            &-boot{
+            cursor: grab;
             position: absolute;
             top: 0;left: 0;
-            height: 18rem;
-            width: 18rem;
+            height: 100%;
+            width: 100%;
+            max-height: 100%;
+            backface-visibility: hidden;
+           -webkit-backface-visibility: hidden;
                 background: url(../../img/lshoe.png);
                 background-size: contain;
                 background-repeat: no-repeat;
                 transition: transform 0.5s ease-in-out;
                 transform-origin: bottom;
+           
                 
                 
            }
            &-icon{
+           
             position: absolute;
             top: 20%;
             left: 7%;
@@ -150,26 +178,33 @@
             &:hover{
                 transform: scale(1.05);
             }
+            & i{
+                font-size: fs(s);
+                @include mq-xxl{
+                    font-size: 35px;
+                }
+            }
         }
 
        }
        & .linked{
         position: relative;
-        height: 20rem;
-        width: 8rem;
-
-        &:hover .linked-boot {
-            transform: translateX(-50%) rotateZ(90deg);
+        height: 200px;
+        width: 80px;
+        
+        cursor: grab;
+        // &:hover .linked-boot {
+        //     transform: translateX(-50%) rotateZ(90deg);
             
-        }
-        &:hover .linked-icon{
-            z-index: 2;
-            transition: z-index 0s 0.5s ease;
-        } 
+        // }
+        // &:hover .linked-icon{
+        //     z-index: 2;
+        //     transition: z-index 0s 0.5s ease;
+        // } 
 
         &-boot{
-            height: 18rem;
-           width: 18rem;
+            height: 100%;
+           width: 100%;
             position: absolute;
             top: 0;
             left: 0;
@@ -178,7 +213,7 @@
                 background-repeat: no-repeat;
             transition: transform 0.5s ease;
             transform-origin: bottom;
-            
+            cursor: grab;
                
         }
         &-icon{
@@ -202,13 +237,32 @@
             
             & i{
                 font-size: fs(s);
-                
+                @include mq-xxl{
+                    font-size: 35px;
+                }
             }
         }
         
     }
     }
 }
+
+.rotate-shoe .git-boot{
+    transform:   rotateZ(-45deg);
+}
+.rotate-shoe .git-icon{
+    z-index: 2;
+    transition: z-index 0s 0.5s ease-in-out;
+} 
+         
+
+.rotate-shoe .linked-boot{
+    transform:  rotateZ(40deg);
+}
+.rotate-shoe .linked-icon{
+            z-index: 2;
+            transition: z-index 0s 0.5s ease;
+        } 
 
 
 .contact-form{
@@ -248,6 +302,27 @@
             transform: rotateZ(3600deg);
         }
 
+        &::after{
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            height: 0.2rem;
+            width: 1.8rem;
+            background-color: var(--cp);
+            transform: translate(-50%,-50%) rotateZ(45deg);
+        }
+        &::before{
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            height: 0.2rem;
+            width: 1.8rem;
+            background-color: var(--cp);
+            transform: translate(-50%,-50%) rotateZ(-45deg);
+        }
+
     }
     & button{
         border: none;
@@ -259,7 +334,9 @@
         color: black;
         border: 0.2rem solid black;
         background-color: transparent;
-
+        @include mq-xxl{
+            font-size: 16.5px;
+        }
     }
 
     .form-control{
@@ -283,14 +360,20 @@
             background-color: var(--cp);
         }
         & input{
+            font-family: 'Source Code Pro', monospace;
             font-size: fs(xs);
             border: none;
-            
-            width: 30ch;
+            letter-spacing: 0.01rem;
+            width: 18rem;
             height: 100%;
-            padding: 1rem 0.5rem ;
+            padding: 1rem 0.7rem ;
             background-color: transparent;
-            
+            @include mq-s{
+                width: 25rem;
+            }
+            @include mq-xxl{
+                font-size: 16.5px;
+            }
             
             &:focus{
                 background-color:transparent;
@@ -301,12 +384,19 @@
             font-family: 'Source Code Pro', monospace;
             border: none;
             font-size: fs(xs);
-            width: 28ch;
+            width: 18rem;
             height: 100%;
-            padding: 1rem 0.5rem ;
+            letter-spacing: 0.01rem;
+            padding: 1rem 0.7rem ;
             background-color: transparent;
             resize: none;
             padding-bottom: 2rem;
+            @include mq-s{
+                width: 25rem;
+            }
+            @include mq-xxl{
+                font-size: 16.5px;
+            }
             &:focus{
                 background-color:transparent;
                 
@@ -329,4 +419,34 @@
 
 .close-con-form{
     transform: scaleX(0);
+}
+
+.form-alert{
+    inset: 0;
+    margin: auto;
+    position: fixed;
+    width: max-content;
+    height: max-content;
+    
+    font-size: fs(s);
+    letter-spacing: normal;
+    display: none;
+    z-index: 40;
+    max-width:90%;
+    text-align: center;
+}
+
+.alert-show{
+    display: block;
+    
+    height: max-content;
+}
+
+.alert-success{
+    padding: 3rem 6rem;
+    background-color: green;
+}
+.alert-danger{
+    padding: 3rem 6rem;
+    background-color: red;
 }

@@ -1,27 +1,38 @@
 .about{
+    z-index: -5;
     overflow: hidden;
     position: relative;
     background-color: var(--cq);
-    min-height: 60vh;
+    min-height: 80vh;
+    
+    
     display: flex;
     align-items: center;
     justify-content: center;
     @include mq-md{
         width: 100%;
-        min-height: 100vh;
-        
+        min-height: 750px;
+        height: 100vh;
+        max-height: 800px;
         justify-content: space-around;
         
     }
 
     &-pol{
+        
         position: absolute;
-        top: 0;
-        left: 0;
+        
+        top: 0%;
+        left: 0%;
         width: 100%;
         height: 100%;
+        z-index: 50;
         background-color: var(--cp);
         clip-path: polygon(0 0, 100% 0, 100% 5%, 50% 20%, 0 5%);
+        @include mq-xxl{
+            clip-path: polygon(0 0, 100% 0, 100% 5%, 50% 100px, 0 5%);
+         }
+        
     }
 
     &-elc{
@@ -61,12 +72,23 @@
             width: 40%;
         }
         & h1{
+            
+            text-align: center;
             font-size: fs(lg);
+            @include mq-md{
+                text-align: left;
+             }
+            @include mq-xxl{
+                font-size: 70px;
+             }
         }
 
         & p{
             margin-top: 1rem;
             font-size: fs(xs);
+            @include mq-xxl{
+                font-size: 24px;
+             }
         }
     }
 
