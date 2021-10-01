@@ -123,24 +123,26 @@
        justify-content: center;
        align-items: center;
       margin-bottom: 5rem;
-      
+      z-index: -1;
        
        & .git{
            position: relative;
            height: 200px;
            width: 80px;
-          
+           z-index: 50;
            transform: translate3d(0,0,0);
            
            cursor: grab;
-        //    &:hover .git-boot{
-        //     transform:translate(-10%,-60%) rotateZ(-90deg);
+       
+        
+           &:hover .git-boot{
+            transform:   rotateZ(-45deg);
             
-        //     } 
-            // &:hover .git-icon{
-            //     z-index: 2;
-            //     transition: z-index 0s 0.5s ease-in-out;
-            // } 
+            } 
+            &:hover .git-icon{
+                z-index: 2;
+                transition: z-index 0s 0.5s ease-in-out;
+            } 
 
            &-boot{
             cursor: grab;
@@ -191,16 +193,16 @@
         position: relative;
         height: 200px;
         width: 80px;
-        
+        z-index: 50;
         cursor: grab;
-        // &:hover .linked-boot {
-        //     transform: translateX(-50%) rotateZ(90deg);
+        &:hover .linked-boot {
+            transform:  rotateZ(40deg);
             
-        // }
-        // &:hover .linked-icon{
-        //     z-index: 2;
-        //     transition: z-index 0s 0.5s ease;
-        // } 
+        }
+        &:hover .linked-icon{
+            z-index: 2;
+            transition: z-index 0s 0.5s ease;
+        } 
 
         &-boot{
             height: 100%;
@@ -247,22 +249,6 @@
     }
 }
 
-.rotate-shoe .git-boot{
-    transform:   rotateZ(-45deg);
-}
-.rotate-shoe .git-icon{
-    z-index: 2;
-    transition: z-index 0s 0.5s ease-in-out;
-} 
-         
-
-.rotate-shoe .linked-boot{
-    transform:  rotateZ(40deg);
-}
-.rotate-shoe .linked-icon{
-            z-index: 2;
-            transition: z-index 0s 0.5s ease;
-        } 
 
 
 .contact-form{

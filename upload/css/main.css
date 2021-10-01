@@ -1332,14 +1332,25 @@ button {
   justify-content: center;
   align-items: center;
   margin-bottom: 5rem;
+  z-index: -1;
 }
 
 .contact-icons .git {
   position: relative;
   height: 200px;
   width: 80px;
+  z-index: 50;
   transform: translate3d(0, 0, 0);
   cursor: grab;
+}
+
+.contact-icons .git:hover .git-boot {
+  transform: rotateZ(-45deg);
+}
+
+.contact-icons .git:hover .git-icon {
+  z-index: 2;
+  transition: z-index 0s 0.5s ease-in-out;
 }
 
 .contact-icons .git-boot {
@@ -1393,7 +1404,17 @@ button {
   position: relative;
   height: 200px;
   width: 80px;
+  z-index: 50;
   cursor: grab;
+}
+
+.contact-icons .linked:hover .linked-boot {
+  transform: rotateZ(40deg);
+}
+
+.contact-icons .linked:hover .linked-icon {
+  z-index: 2;
+  transition: z-index 0s 0.5s ease;
 }
 
 .contact-icons .linked-boot {
@@ -1438,24 +1459,6 @@ button {
   .contact-icons .linked-icon i {
     font-size: 35px;
   }
-}
-
-.rotate-shoe .git-boot {
-  transform: rotateZ(-45deg);
-}
-
-.rotate-shoe .git-icon {
-  z-index: 2;
-  transition: z-index 0s 0.5s ease-in-out;
-}
-
-.rotate-shoe .linked-boot {
-  transform: rotateZ(40deg);
-}
-
-.rotate-shoe .linked-icon {
-  z-index: 2;
-  transition: z-index 0s 0.5s ease;
 }
 
 .contact-form {

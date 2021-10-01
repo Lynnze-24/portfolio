@@ -243,10 +243,10 @@ window.addEventListener('resize',closeProjectBg);
 function closeProjectBg(){
     
         const vanish = document.querySelector('.projectsm-vanish');
-        if(vanish){
+        if((proZoom)&& vanish){
             proZoom = false;
             zoomPCon.classList.remove('active-project');
-            
+              
                 zoomPCon.classList.remove('over-ani');
         
                 setTimeout(function(){
@@ -262,33 +262,6 @@ function closeProjectBg(){
 
 
 
-// browser compactability for chrome
-
-// fix hover bug in chrome
-let contactCon = document.querySelector('.contact')
-let contactWrap = document.querySelector('.contact-wrap')
-let gitCon = document.querySelector('.git')
-let linkedCon = document.querySelector('.linked')
-
-contactCon.addEventListener('mouseover',revealIcon)
-
-
-function revealIcon(event){
-//   console.log(event.target)
-    if(event.target==gitCon.children[0]){
-        gitCon.classList.add('rotate-shoe');
-        linkedCon.classList.remove('rotate-shoe')
-    }
-    if(event.target==linkedCon.children[0]){
-        gitCon.classList.remove('rotate-shoe')
-        linkedCon.classList.add('rotate-shoe')
-    }
-    if(event.target==contactWrap){
-        gitCon.classList.remove('rotate-shoe')
-        linkedCon.classList.remove('rotate-shoe')
-    }
-    
-}
 
 
 // submit form to send message
