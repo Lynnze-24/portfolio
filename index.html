@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -11,9 +10,6 @@
     <link rel="stylesheet" href="upload/css/main.css">
 </head>
 <body>
-  
-  
-
  
   <section class="showcase">
     <div class="showcase-content">
@@ -66,13 +62,22 @@
       <p>Self taught web developer focusing mainly on front-end with full stack knowledge, currently finding a place to further develop my skills.</p>
     </div>
   </section>
+
   <section class="skill">
     <h1>My Skills</h1>
     <div class="skill-slide">
        <div class="skill-slide_wrap">
 
        
-        <div class="skill-slide_box"><span style="--i:1;"><img src="img/skill/node.png" alt=""></span><span style="--i:2;"><img src="img/skill/sq.png" alt=""></span><span style="--i:3;"><img src="img/skill/sass.png" alt=""></span><span style="--i:4;"><img src="img/skill/rdx.png" alt=""></span><span style="--i:5;"><img src="img/skill/r.png" alt=""></span><span style="--i:6;"><img src="img/skill/ph.png" alt=""></span><span style="--i:7;"><img src="img/skill/p.png" alt=""></span><span style="--i:8;"><img src="img/skill/mg.png" alt=""></span>
+        <div class="skill-slide_box">
+          <span style="--i:1;"><img src="img/skill/node.png" alt="node.png"></span>
+          <span style="--i:2;"><img src="img/skill/sq.png" alt="sq.png"></span>
+          <span style="--i:3;"><img src="img/skill/sass.png" alt="sass.png"></span>
+          <span style="--i:4;"><img src="img/skill/rdx.png" alt="rdx.png"></span>
+          <span style="--i:5;"><img src="img/skill/r.png" alt="r.png"></span>
+          <span style="--i:6;"><img src="img/skill/Vue.png" alt="Vue.png"></span>
+          <span style="--i:7;"><img src="img/skill/next.png" alt="next.png"></span>
+          <span style="--i:8;"><img src="img/skill/mg.png" alt=""></span>
         <span style="--i:9;"><img src="img/skill/jq.png" alt=""></span>
         <span style="--i:10;"><img src="img/skill/b.png" alt=""></span>
     </div>
@@ -201,7 +206,7 @@
   </section>
 
   
-  <form onSubmit = "return false;" class="contact-form" action="https://nandy.tech/porrrt/" method="post">
+  <form class="contact-form">
   <p class="close-form"></p>
   <div class="form-control">
     
@@ -215,14 +220,13 @@
     
    <textarea name="message" placeholder="Message" rows="2"></textarea>
   </div>
-  <button>Send</button>
+  <button type="buttton" >Send</button>
 </form>
 
 <div class="project-big">
 </div>
 <div class="form-alert">
-   <?= $error ?> <?= $success ?>
-  
+   
   </div>
 
 <div class="zoom-text">
@@ -247,7 +251,9 @@
     <div class="zoom-project-img"> 
     </div>
 
-    
+    <!-- <div class="form-alert">
+     
+     </div> -->
   
 </div>
 

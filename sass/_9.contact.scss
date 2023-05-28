@@ -27,7 +27,7 @@
         height: 300rem;
         width: 500rem;
        
-        background-image: url(../../img/floor.png);
+        background-image: url(../../img/floor.jpg);
         
     }    
     &-con{
@@ -413,13 +413,15 @@
     position: fixed;
     width: max-content;
     height: max-content;
-    
+    background-color: white;
     font-size: fs(s);
     letter-spacing: normal;
     display: none;
     z-index: 40;
     max-width:90%;
     text-align: center;
+    padding: 1rem 2rem;
+    border-radius: 0.5rem;
 }
 
 .alert-show{

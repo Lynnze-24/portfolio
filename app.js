@@ -1,9 +1,9 @@
 // removing message
-const alertForm = document.querySelector('.form-alert')
-alertForm.classList.add('alert-show');
-setTimeout(function(){
-    alertForm.classList.remove('alert-show');
-},4000);
+// const alertForm = document.querySelector('.form-alert')
+// alertForm.classList.add('alert-show');
+// setTimeout(function(){
+//     alertForm.classList.remove('alert-show');
+// },4000);
 
 
 //  for preload
@@ -159,18 +159,18 @@ const proHead = document.querySelector('.zoom-project-info h3');
 const proadv = document.querySelector('.zoom-project-info ul');
 const proLinks = document.querySelectorAll('.action-link');
 
-let advArr = ['<li>Amazing sound effects</li><li>Canvas-based game</li><li>Own AI algorithm</li>','<li>Cool pictures of animals</li><li>3 Difficulty levels</li><li>100% own code</li>', '<li>Stunning hover effects</li><li>Light and dark themes</li><li>100% responsive design</li>','<li>Awesome Navigation effect</li><li>100% CSS Grid</li><li>Responsive web design</li>','<li>Amazing animations</li><li>3D experience</li><li>PHP contact form</li>','<li>Cool text effects</li><li>Awesome spinner</li><li>Custom time counter</li>']
+let advArr = ['<li>Game Sound effects</li><li>Canvas-based game</li><li>Own AI algorithm</li>','<li>Cool pictures of animals</li><li>3 Difficulty levels</li><li>100% own code</li>', '<li>Multiple hover effects</li><li>Light and dark themes</li><li>100% responsive design</li>','<li>Landing page example</li><li>100% CSS Grid</li><li>Responsive web design</li>','<li>Animations and effects</li><li>3D experience</li><li>Nodejs contact form</li>','<li>Text shadow effects</li><li>Awesome custom spinner</li><li>Custom time counter</li>']
 
 let HeadArr = ['Ping Pong','Test Your Memory', 'Gymatic fitness','Vision Luxury Villas','My Portfolio','Been Together']
 
 let linkArr = [
-['https://nandy.tech/pingpong/','https://github.com/Lynnze-24/pingpong'],
-['https://nandy.tech/Memorygame/','https://github.com/Lynnze-24/Memorygame'], 
-['https://nandy.tech/gymatic/','https://github.com/Lynnze-24/gymatic'],
-['https://nandy.tech/vlv/','https://github.com/Lynnze-24/vlv'],
-['https://nandy.tech/portfolio/','https://github.com/Lynnze-24/portfolio']
+['https://pingpong-vs-ai.netlify.app/','https://github.com/Lynnze-24/pingpong'],
+['https://test-yourmemory.netlify.app/','https://github.com/Lynnze-24/Memorygame'], 
+['https://gymatic.netlify.app/','https://github.com/Lynnze-24/gymatic'],
+['https://vision-luxury-villas.netlify.app/','https://github.com/Lynnze-24/vlv'],
+['https://aunghtetlinn.infinityfreeapp.com','https://github.com/Lynnze-24/portfolio']
 ,
-['https://nandy.tech/anni2nd/','https://github.com/Lynnze-24/beenTogether']
+['https://anniversary-friends.netlify.app/','https://github.com/Lynnze-24/beenTogether']
 ]
 
 function proInfoDisplay(n){
@@ -279,7 +279,7 @@ const messageAlert = document.querySelector('.form-alert');
 formSubBtn.addEventListener('click',sendMessage)
 const regxEmail = /\w@gmail.com$/;
 function sendMessage(e){
-    
+    e.preventDefault();
     if(emailInput.value!=''){
         e.preventDefault();
      let isMailValid = regxEmail.test(emailInput.value);
@@ -297,47 +297,94 @@ function sendMessage(e){
     }
 
 
-    if(emailInput.value==''){
-        e.preventDefault();
+    if(emailInput.value===''){
+        
         messageAlert.classList.add('alert-show')
-        messageAlert.style.backgroundColor= 'red'
+        messageAlert.style.color= 'red'
         messageAlert.innerText= 'Email required!'
         setTimeout(function(){
             messageAlert.classList.remove('alert-show')
         },1000)
 
-    }else if(subjectInput.value==''){
-        e.preventDefault();
+    }else if(subjectInput.value===''){
+     
         messageAlert.classList.add('alert-show')
-        messageAlert.style.backgroundColor= 'red'
+        messageAlert.style.color= 'red'
         messageAlert.innerText= 'Subject required!'
         setTimeout(function(){
             messageAlert.classList.remove('alert-show')
         },1000)
 
-    }else if(messageInput.value==''){
-        e.preventDefault();
+    }else if(messageInput.value===''){
+        
         messageAlert.classList.add('alert-show')
-        messageAlert.style.backgroundColor= 'red'
+        messageAlert.style.color= 'red'
         messageAlert.innerText= 'Message required!'
         setTimeout(function(){
             messageAlert.classList.remove('alert-show')
         },1000)
 
     }else{
-        messageForm.submit();
-       
+        // messageForm.submit();
+          e.preventDefault();
+        let postData = {
+            email:emailInput.value,
+            subject:subjectInput.value,
+            message:messageInput.value
+        }
+
+        messageAlert.style.color= '#323232'
+        messageAlert.classList.add('alert-show')
+        messageAlert.innerText= 'Sending Message...'
+
+        fetch('https://mailingservice.vercel.app/mail',{
+  
+            method:'POST',
+            body:JSON.stringify(postData),
+            headers: {
+            "Content-Type": "application/json",
+            },
+            mode:'cors'
+        }).then((result)=> {
+                    console.log(result)
+                    //    messageAlert.classList.add('alert-show')
+                    //     messageAlert.style.backgroundColor= 'green'
+                    //     messageAlert.innerText= 'Message sent!I will contact you ASAP'
+                    // messageAlert.classList.remove('alert-show')
+                    emailInput.value='';
+                    subjectInput.value='';
+                    messageInput.value='';
+                    messageForm.classList.remove('open-form')
+                    messageAlert.style.color= 'green'
+                    messageAlert.classList.add('alert-show')
+                    messageAlert.innerText= 'Your message was sent successfully!'
+                    setTimeout(function(){
+                        messageAlert.classList.remove('alert-show')
+                    },1000)
+                    setTimeout(function(){
+                        formOpenBtn.classList.remove('close-con-form');
+                    },300)
+            
+        }).catch(e => {
+                    console.log(e)
+                    emailInput.value='';
+                    subjectInput.value='';
+                    messageInput.value='';
+                    messageForm.classList.remove('open-form')
+
+                    messageAlert.style.color= 'red'
+                    messageAlert.classList.add('alert-show')
+                    messageAlert.innerText= 'Something went wrong!'
+                    setTimeout(function(){
+                        messageAlert.classList.remove('alert-show')
+                    },1000)
+   
+                    setTimeout(function(){
+                        formOpenBtn.classList.remove('close-con-form');
+                    },300)
+        })
         
-        //    messageAlert.classList.add('alert-show')
-        // messageAlert.style.backgroundColor= 'green'
-        // messageAlert.innerText= 'Message sent!I will contact you ASAP'
-        setTimeout(function(){
-            messageForm.submit();
-            messageAlert.classList.remove('alert-show')
-            emailInput.value='';
-            subjectInput.value='';
-            messageInput.value='';
-        },1000)
+        
         
     }
     
