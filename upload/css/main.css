@@ -358,7 +358,7 @@ button {
   position: absolute;
   top: 0%;
   left: 0%;
-  width: 100%;
+  width: 101%;
   height: 100%;
   z-index: 50;
   background-color: var(--cp);
@@ -1507,16 +1507,4 @@ button {
 
 .alert-show {
   display: block;
-  height: -moz-max-content;
-  height: max-content;
-}
-
-.alert-success {
-  padding: 3rem 6rem;
-  background-color: green;
-}
-
-.alert-danger {
-  padding: 3rem 6rem;
-  background-color: red;
 }/*# sourceMappingURL=main.css.map */

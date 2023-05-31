@@ -277,7 +277,7 @@ const formSubBtn = document.querySelector('.contact-form button');
 const messageAlert = document.querySelector('.form-alert');
 
 formSubBtn.addEventListener('click',sendMessage)
-const regxEmail = /\w@gmail.com$/;
+const regxEmail = /^[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Za-z]{2,}$/;
 function sendMessage(e){
     e.preventDefault();
     if(emailInput.value!=''){
@@ -285,8 +285,7 @@ function sendMessage(e){
      let isMailValid = regxEmail.test(emailInput.value);
         if(isMailValid==false){
             messageAlert.classList.add('alert-show')
-        messageAlert.style.backgroundColor= 'red'
-        messageAlert.innerText= 'Email Invalid!'
+            messageAlert.innerText= 'Email Invalid!'
         setTimeout(function(){
             messageAlert.classList.remove('alert-show')
         },1000)
@@ -347,10 +346,7 @@ function sendMessage(e){
             mode:'cors'
         }).then((result)=> {
                     console.log(result)
-                    //    messageAlert.classList.add('alert-show')
-                    //     messageAlert.style.backgroundColor= 'green'
-                    //     messageAlert.innerText= 'Message sent!I will contact you ASAP'
-                    // messageAlert.classList.remove('alert-show')
+                
                     emailInput.value='';
                     subjectInput.value='';
                     messageInput.value='';
