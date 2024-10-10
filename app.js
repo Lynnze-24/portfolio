@@ -291,7 +291,6 @@ function sendMessage(e){
         },1000)
         return;
         }
-        
 
     }
 
